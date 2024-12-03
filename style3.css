@@ -1,0 +1,18 @@
+/* สไตล์สำหรับหน้า 3 */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #6d075c; /* สีพื้นหลังเข้ม เพื่อให้ตัวหนังสือสีฟ้าชัดเจน */
+    color: #ffffff; /* สีข้อความเป็นขาวเพื่อให้เด่น */
+    display: flex;
+    justify-content: center; /* จัดแนวกลางในแนวนอน */
+    align-items: center; /* จัดแนวกลางในแนวตั้ง */
+    height: 100vh; /* ความสูงเต็มหน้าจอ */
+    margin: 0; /* ไม่ให้มีช่องว่างด้านข้าง */
+}
+
+#countdown-message {
+    font-size: 150px; /* ขนาดตัวอักษรใหญ่ขึ้น */
+    font-weight: bold;
+    color: #00c6ff; /* สีฟ้า */
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); /* เพิ่มเงาใต้ตัวหนังสือเพื่อให้เด่นขึ้น */
+}

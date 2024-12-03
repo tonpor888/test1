@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Page</title>
+    <link rel="stylesheet" href="style.css"> <!-- เชื่อมโยง CSS หน้า 2 -->
+</head>
+<body>
+    <div class="container">
+       
+        <h1 id="countdown"></h1> <!-- เวลา Countdown -->
+    </div>
+
+    <script>
+        // กำหนดวันที่ 7 ธันวาคม 2567
+        const targetDate = new Date("2024-12-03T00:00:00").getTime();
+        
+        const countdownElement = document.getElementById("countdown");
+        const countdownHeader = document.getElementById("countdown-header");
+
+        // ฟังก์ชันนับถอยหลัง
+        const countdownInterval = setInterval(function() {
+            const currentTime = new Date().getTime(); // เวลาปัจจุบัน
+            const timeRemaining = targetDate - currentTime; // คำนวณเวลาที่เหลือ
+
+            // คำนวณวัน, ชั่วโมง, นาที, และวินาที
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            // แสดงผลใน HTML
+            countdownElement.innerHTML = `${days} วัน ${hours} ชั่วโมง ${minutes} นาที ${seconds} วินาที`;
+
+            // เมื่อเวลาหมดลง
+            if (timeRemaining < 0) {
+                clearInterval(countdownInterval); // หยุดนับถอยหลัง
+                countdownElement.innerHTML = "หมดเวลา!";
+                // เปลี่ยนหน้าไปยังหน้าที่ 3
+                setTimeout(function() {
+                    window.location.href = "หน้า3.html"; // ลิ้งค์ไปยังหน้าที่ 3
+                }, 2000); // ล่าช้า 2 วินาทีเพื่อให้ผู้ใช้เห็นข้อความ "หมดเวลา"
+            }
+        }, 1000); // ทำการนับถอยหลังทุก 1 วินาที
+    </script>
+</body>
+</html>

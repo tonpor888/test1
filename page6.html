@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <!-- ลิงก์ไปยังฟอนต์ Krub -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style4.css"> <!-- เชื่อมโยง CSS -->
+</head>
+<body>
+    <div class="container">
+        <div class="message" id="message1">สุดท้ายละ</div>
+        <div class="message" id="message2">ดู!!!</div>
+       
+    </div>
+
+    <script>
+        let messageIndex = 0;
+        const messages = document.querySelectorAll(".message");
+
+        function showNextMessage() {
+            if (messageIndex < messages.length) {
+                const currentMessage = messages[messageIndex];
+                currentMessage.style.display = "block";
+                currentMessage.style.animation = "fadeInOut 6s forwards";
+                messageIndex++;
+            } else {
+                // หลังข้อความสุดท้าย ให้ลิ้งไปหน้า 5
+                setTimeout(() => {
+                    window.location.href = "page7.html"; // เปลี่ยนไปหน้า 5
+                }, 6000); // รอ 6 วินาทีหลังข้อความสุดท้าย
+            }
+        }
+
+        // แสดงข้อความแรกทันที
+        window.onload = () => {
+            messages[0].style.display = "block";
+            messages[0].style.animation = "fadeInOut 6s forwards";
+            messageIndex = 1; // เริ่มแสดงข้อความถัดไป
+            setInterval(showNextMessage, 6000); // เรียกข้อความใหม่ทุก 6 วินาที
+        };
+    </script>
+</body>
+</html>

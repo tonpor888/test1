@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HBD คุณแฟน</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style4.css"> <!-- เชื่อมโยง CSS -->
+</head>
+<body>
+  <div class="container" id="container">
+    <h1>กรุณาใส่รหัสผ่าน</h1>
+    <p>รหัสผ่านเป็นตัวเลข 8 หลัก</p>
+    <div class="password-container">
+      <input type="text" maxlength="1" class="password-input" id="digit1">
+      <input type="text" maxlength="1" class="password-input" id="digit2">
+      <input type="text" maxlength="1" class="password-input" id="digit3">
+      <input type="text" maxlength="1" class="password-input" id="digit4">
+      <input type="text" maxlength="1" class="password-input" id="digit5">
+      <input type="text" maxlength="1" class="password-input" id="digit6">
+      <input type="text" maxlength="1" class="password-input" id="digit7">
+      <input type="text" maxlength="1" class="password-input" id="digit8">
+    </div>
+    <button class="submit-btn" onclick="checkPassword()">ยืนยัน</button>
+  </div>
+  <script>
+    // ตรวจสอบรหัสผ่าน
+    function checkPassword() {
+      const correctPassword = "07122548";
+      const inputs = document.querySelectorAll(".password-input");
+      const inputPassword = Array.from(inputs).map(input => input.value).join("");
+
+      if (inputPassword === correctPassword) {
+        // เอฟเฟกต์เปลี่ยนหน้า
+        const container = document.getElementById("container");
+        container.style.opacity = "0"; // ค่อย ๆ จางหาย
+        setTimeout(() => {
+          window.location.href = "countdown.html"; // เปลี่ยนหน้า
+        }, 1000); // รอ 1 วินาที
+      } else {
+        inputs.forEach(input => (input.style.borderColor = "red"));
+        alert("รหัสผ่านไม่ถูกต้อง!");
+      }
+    }
+
+    // เปลี่ยน focus อัตโนมัติเมื่อกรอกเสร็จ
+    document.querySelectorAll(".password-input").forEach((input, index, inputs) => {
+      input.addEventListener("input", () => {
+        if (input.value.length === 1 && inputs[index + 1]) {
+          inputs[index + 1].focus();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

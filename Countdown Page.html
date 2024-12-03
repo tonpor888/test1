@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="th">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style4.css"> <!-- เชื่อมโยง CSS -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+    <!-- เชื่อมโยงไฟล์ CSS ใหม่ -->
+    <link rel="stylesheet" href="countdown-style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="countdown-text">3</h1>
+    </div>
+
+    <script>
+        let countdown = 3;
+        const countdownText = document.querySelector('.countdown-text');
+
+        const timer = setInterval(() => {
+            countdown--;
+            countdownText.textContent = countdown;
+
+            if (countdown === 0) {
+                clearInterval(timer); // หยุดนับถอยหลังเมื่อถึง 0
+                countdownText.textContent = "เริ่มแล้ว!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

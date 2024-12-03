@@ -1,0 +1,53 @@
+/* countdown-style.css */
+
+/* รีเซ็ตค่าพื้นฐาน */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* กำหนดพื้นหลังของหน้าเป็นสีขาว */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff; /* พื้นหลังสีขาว */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #00c6ff; /* ตัวหนังสือสีฟ้า */
+    text-align: center;
+    font-size: 50px; /* ขนาดตัวอักษร */
+  }
+  
+  /* กล่องคอนเทนเนอร์ */
+  .container {
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* ข้อความที่นับถอยหลัง */
+  .countdown-text {
+    font-size: 100px; /* ขนาดตัวใหญ่ปานกลาง */
+    font-weight: bold;
+    animation: countdownAnimation 1s ease-in-out infinite; /* เพิ่มเอฟเฟค */
+  }
+  
+  /* เอฟเฟคการขยายตัวเลข */
+  @keyframes countdownAnimation {
+    0% {
+      transform: scale(0.5); /* ขนาดเริ่มต้นเล็ก */
+      opacity: 0.5; /* ความโปร่งใสเริ่มต้น */
+    }
+    50% {
+      transform: scale(1.5); /* ขยายตัวเลข */
+      opacity: 1; /* ความโปร่งใสเต็มที่ */
+    }
+    100% {
+      transform: scale(1); /* กลับสู่ขนาดปกติ */
+      opacity: 1;
+    }
+  }
+  

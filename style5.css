@@ -1,0 +1,36 @@
+body {
+    font-family: 'Krub', sans-serif; /* ใช้ฟอนต์ Krub */
+    background: url('background5.jpg') no-repeat center center fixed; /* เพิ่มพื้นหลัง */
+    background-size: cover; /* ปรับพื้นหลังให้เต็มหน้าจอ */
+    color: #080808; /* สีตัวอักษรเป็นสีขาวเพื่อให้อ่านง่าย */
+    margin: 0;
+    display: flex;
+    justify-content: center; /* จัดข้อความให้อยู่กึ่งกลางแนวนอน */
+    align-items: center; /* จัดข้อความให้อยู่กึ่งกลางแนวตั้ง */
+    height: 100vh; /* ความสูงเต็มหน้าจอ */
+}
+
+.container {
+    width: 80%; /* กำหนดความกว้าง */
+    text-align: left;
+    line-height: 1.8; /* ระยะห่างระหว่างบรรทัด */
+}
+
+.message {
+    font-size: 24px; /* ขนาดข้อความ */
+    margin-bottom: 15px; /* ระยะห่างระหว่างข้อความ */
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+/* เอฟเฟกต์ข้อความ */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px); /* เริ่มจากตำแหน่งล่าง */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* กลับตำแหน่งปกติ */
+    }
+}

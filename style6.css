@@ -1,0 +1,48 @@
+/* การตั้งค่าสไตล์สำหรับหน้า 4 */
+body {
+    font-family: 'Krub', sans-serif; /* ใช้ฟอนต์ Krub */
+    background-color: #ffffff; /* พื้นหลังสีขาว */
+    color: #333; /* สีตัวหนังสือ */
+    display: flex;
+    justify-content: center; /* จัดแนวกลางในแนวนอน */
+    align-items: center; /* จัดแนวกลางในแนวตั้ง */
+    height: 100vh; /* ความสูงเต็มหน้าจอ */
+    margin: 0; /* ไม่มีระยะขอบ */
+}
+
+.container {
+    text-align: center; /* จัดข้อความให้อยู่กลาง */
+    display: flex;
+    flex-direction: column; /* เรียงข้อความในแนวตั้ง */
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* ใช้พื้นที่เต็มหน้าจอ */
+}
+
+.message {
+    font-size: 50px; /* ขนาดตัวอักษรใหญ่ขึ้น */
+    font-weight: 600; /* ใช้ฟอนต์แบบหนา */
+    color: #141414; /* สีฟ้า */
+    opacity: 0; /* ซ่อนข้อความตอนเริ่มต้น */
+    animation: fadeInOut 6s forwards; /* เอฟเฟคแสดงแล้วหายไป */
+    display: none; /* ซ่อนข้อความจนกว่าจะถึงเวลา */
+}
+
+/* การสร้างเอฟเฟคการค่อยๆ แสดงและหายไป */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0; /* ซ่อนข้อความ */
+    }
+    10% {
+        opacity: 1; /* แสดงข้อความ */
+    }
+    40% {
+        opacity: 1; /* คงข้อความจนถึง 40% */
+    }
+    50% {
+        opacity: 0; /* เริ่มค่อยๆ หายไป */
+    }
+    100% {
+        opacity: 0; /* ซ่อนข้อความ */
+    }
+}
